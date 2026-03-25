@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welsh Cuisine | Рецепты</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background: linear-gradient(135deg, #f5f0e8 0%, #e8e2d8 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+
+        /* Кнопка языка */
+        .lang-btn {
+            position: fixed;
+            top: 24px;
+            right: 24px;
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(4px);
+            border: 1px solid #ddd8d0;
+            padding: 10px 24px;
+            border-radius: 40px;
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: #3c3a38;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            z-index: 100;
+            font-family: inherit;
+        }
+
+        .lang-btn:hover {
+            background: #ffffff;
+            border-color: #cbc6be;
+            transform: translateY(-1px);
+        }
+
+        /* Навигация назад */
+        .back-nav {
+            max-width: 800px;
+            margin: 0 auto 32px auto;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: #8b8985;
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.2s;
+            padding: 8px 0;
+        }
+
+        .back-link:hover {
+            color: #2c2b29;
+        }
+
+        /* Заголовок */
+        .header {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+
+        .header h1 {
+            font-size: 2.8rem;
+            font-weight: 500;
+            letter-spacing: -0.5px;
+            color: #2c2b29;
+            margin-bottom: 12px;
+        }
+
+        .header p {
+            font-size: 1.1rem;
+            color: #8b8985;
+            font-weight: 400;
+        }
+
+        /* Контейнер с рецептами */
+        .recipes-container {
+            max-width: 900px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 32px;
+        }
+
+        /* Карточка рецепта */
+        .recipe-card {
+            background: #ffffff;
+            border-radius: 28px;
+            padding: 32px;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.03);
+            border: 1px solid #efedea;
+            transition: all 0.25s ease;
+        }
+
+        .recipe-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 20px 28px -12px rgba(0, 0, 0, 0.1);
+            border-color: #e0ddd8;
+        }
+
+        .recipe-title {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: #2c2b29;
+            margin-bottom: 8px;
+            letter-spacing: -0.3px;
+        }
+
+        .recipe-sub {
+            color: #9b9994;
+            font-size: 0.9rem;
+            margin-bottom: 24px;
+            padding-bottom: 16px;
+            border-bottom: 2px solid #f0eeea;
+        }
+
+        .recipe-section {
+            margin-bottom: 24px;
+        }
+
+        .recipe-section h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #5e5b56;
+            margin-bottom: 12px;
+            letter-spacing: -0.2px;
+        }
+
+        .ingredients-list {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .ingredients-list li {
+            background: #f8f6f2;
+            padding: 6px 14px;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            color: #4a4844;
+        }
+
+        .steps-list {
+            list-style: none;
+            counter-reset: step-counter;
+        }
+
+        .steps-list li {
+            counter-increment: step-counter;
+            margin-bottom: 16px;
+            padding-left: 32px;
+            position: relative;
+            line-height: 1.5;
+            color: #4a4844;
+        }
+
+        .steps-list li::before {
+            content: counter(step-counter);
+            position: absolute;
+            left: 0;
+            top: 0;
+            background: #e8e2d8;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: #5e5b56;
+        }
+
+        .note {
+            background: #f8f6f2;
+            padding: 16px 20px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            color: #6b695f;
+            margin-top: 20px;
+            border-left: 4px solid #cbc6be;
+        }
+
+        @media (max-width: 700px) {
+            body {
+                padding: 20px 16px;
+            }
+            .lang-btn {
+                top: 16px;
+                right: 16px;
+                padding: 6px 18px;
+                font-size: 0.85rem;
+            }
+            .header h1 {
+                font-size: 2rem;
+            }
+            .recipe-card {
+                padding: 24px;
+            }
+            .recipe-title {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <button class="lang-btn" id="langToggle">Change language</button>
+
+    <div class="back-nav">
+        <a href="index.html" class="back-link">
+            ← Back to main menu
+        </a>
+    </div>
+
+    <div class="header">
+        <h1 data-en="Welsh Cuisine" data-ru="Валийская кухня">Welsh Cuisine</h1>
+        <p data-en="Traditional Welsh recipes" data-ru="Традиционные валлийские рецепты">Traditional Welsh recipes</p>
+    </div>
+
+    <div class="recipes-container">
+       <!-- WELSH CAKES -->
+       <div class="recipe-card">
+        <div class="recipe-title" data-en="Welsh Cakes" data-ru="Welsh Cakes">Welsh Cakes</div>
+        <div class="recipe-sub" data-en="traditional Welsh griddle cakes" data-ru="традиционные валлийские лепешки">traditional Welsh griddle cakes</div>
+        
+        <div class="recipe-section">
+            <h3 data-en="Ingredients" data-ru="Ингредиенты">Ingredients</h3>
+            <ul class="ingredients-list">
+                <li data-en="225g plain flour" data-ru="225 г муки">225g plain flour</li>
+                <li data-en="100g cold butter, cubed" data-ru="100 г холодного сливочного масла, кубиками">100g cold butter, cubed</li>
+                <li data-en="85g caster sugar" data-ru="85 г сахарной пудры">85g caster sugar</li>
+                <li data-en="75g currants or raisins" data-ru="75 г смородины или изюма">75g currants or raisins</li>
+                <li data-en="1 egg, beaten" data-ru="1 яйцо, взбитое">1 egg, beaten</li>
+                <li data-en="1/2 tsp mixed spice" data-ru="1/2 ч.л. смеси специй">1/2 tsp mixed spice</li>
+                <li data-en="Milk if needed" data-ru="Молоко при необходимости">Milk if needed</li>
+            </ul>
+        </div>
+
+        <div class="recipe-section">
+            <h3 data-en="Instructions" data-ru="Приготовление">Instructions</h3>
+            <ul class="steps-list">
+                <li data-en="Rub butter into flour until it resembles breadcrumbs." data-ru="Разотрите масло с мукой до состояния хлебных крошек.">Rub butter into flour until breadcrumb-like.</li>
+                <li data-en="Stir in sugar, currants and mixed spice." data-ru="Вмешайте сахар, смородину и специи.">Stir in sugar, currants and mixed spice.</li>
+                <li data-en="Add beaten egg and mix to form a dough. Add a splash of milk if too dry." data-ru="Добавьте взбитое яйцо и замесите тесто. Если суховато, добавьте немного молока.">Add egg and mix to form dough. Add milk if too dry.</li>
+                <li data-en="Roll out to about 5mm thickness. Cut into rounds with a 7cm cutter." data-ru="Раскатайте до толщины около 5 мм. Вырежьте кружочки формой 7 см.">Roll out to 5mm thickness. Cut into rounds.</li>
+                <li data-en="Cook on a greased griddle or heavy frying pan over medium heat for 3-4 minutes each side until golden." data-ru="Готовьте на смазанной сковороде-гриль или тяжелой сковороде на среднем огне по 3-4 минуты с каждой стороны до золотистого цвета.">Cook on a greased griddle for 3-4 minutes each side until golden.</li>
+                <li data-en="Sprinkle with caster sugar while still warm." data-ru="Посыпьте сахарной пудрой пока теплые.">Sprinkle with caster sugar while warm.</li>
+            </ul>
+        </div>
+        <div class="note" data-en="🔥 Best enjoyed warm with a cup of tea. Traditional Welsh cakes are made on a bakestone (maen)." data-ru="🔥 Лучше всего есть теплыми с чашкой чая. Традиционные валлийские лепешки готовят на камне для выпечки (maen).">🔥 Best enjoyed warm with a cup of tea.</div>
+    </div>  
+      <!-- CAWL -->
+        <div class="recipe-card">
+            <div class="recipe-title" data-en="Cawl" data-ru="Cawl">Cawl</div>
+            <div class="recipe-sub" data-en="traditional Welsh lamb stew" data-ru="традиционное валлийское рагу с бараниной">traditional Welsh lamb stew</div>
+            
+            <div class="recipe-section">
+                <h3 data-en="Ingredients" data-ru="Ингредиенты">Ingredients</h3>
+                <ul class="ingredients-list">
+                    <li data-en="500g lamb neck or shoulder, cubed" data-ru="500 г баранины (шея или лопатка), кубиками">500g lamb, cubed</li>
+                    <li data-en="2 large carrots, chopped" data-ru="2 крупные моркови, нарезанные">2 large carrots</li>
+                    <li data-en="2 leeks, sliced" data-ru="2 лука-порея, нарезанных">2 leeks, sliced</li>
+                    <li data-en="2 potatoes, peeled and diced" data-ru="2 картофелины, очищенные и нарезанные">2 potatoes, diced</li>
+                    <li data-en="1 swede (rutabaga), diced" data-ru="1 брюква, нарезанная кубиками">1 swede, diced</li>
+                    <li data-en="1.5 liters lamb or vegetable stock" data-ru="1.5 л бульона (бараний или овощной)">1.5 liters stock</li>
+                    <li data-en="Fresh parsley for garnish" data-ru="Свежая петрушка для украшения">Fresh parsley</li>
+                </ul>
+            </div>
+
+            <div class="recipe-section">
+                <h3 data-en="Instructions" data-ru="Приготовление">Instructions</h3>
+                <ul class="steps-list">
+                    <li data-en="Brown the lamb in a large pot over medium-high heat." data-ru="Обжарьте баранину в большой кастрюле на среднем огне до румяной корочки.">Brown the lamb in a large pot over medium-high heat.</li>
+                    <li data-en="Add all vegetables except potatoes and cook for 5 minutes." data-ru="Добавьте все овощи, кроме картофеля, и готовьте 5 минут.">Add all vegetables except potatoes and cook for 5 minutes.</li>
+                    <li data-en="Pour in the stock, bring to a boil, then reduce heat and simmer for 1.5 hours." data-ru="Влейте бульон, доведите до кипения, затем убавьте огонь и томите 1.5 часа.">Pour in stock, bring to boil, then simmer for 1.5 hours.</li>
+                    <li data-en="Add potatoes and cook for another 30 minutes until tender." data-ru="Добавьте картофель и варите еще 30 минут до мягкости.">Add potatoes and cook for another 30 minutes until tender.</li>
+                    <li data-en="Season with salt and pepper. Garnish with fresh parsley before serving." data-ru="Посолите и поперчите по вкусу. Украсьте свежей петрушкой перед подачей.">Season with salt and pepper. Garnish with fresh parsley.</li>
+                </ul>
+            </div>
+            <div class="note" data-en="🏴󠁧󠁢󠁷󠁬󠁳󠁿 Traditionally served with crusty bread and a slice of Caerphilly cheese." data-ru="🏴󠁧󠁢󠁷󠁬󠁳󠁿 Традиционно подается с хрустящим хлебом и ломтиком сыра Кайрфилли.">🏴󠁧󠁢󠁷󠁬󠁳󠁿 Serve with crusty bread and Caerphilly cheese.</div>
+        </div>
+
+        <!-- BARA BRITH -->
+        <div class="recipe-card">
+            <div class="recipe-title" data-en="Bara Brith" data-ru="Bara Brith">Bara Brith</div>
+            <div class="recipe-sub" data-en="Welsh fruit loaf" data-ru="валлийский фруктовый хлеб">Welsh fruit loaf</div>
+            
+            <div class="recipe-section">
+                <h3 data-en="Ingredients" data-ru="Ингредиенты">Ingredients</h3>
+                <ul class="ingredients-list">
+                    <li data-en="450g mixed dried fruit (raisins, currants, sultanas)" data-ru="450 г смеси сухофруктов (изюм, смородина, кишмиш)">450g mixed dried fruit</li>
+                    <li data-en="300ml strong hot tea" data-ru="300 мл крепкого горячего чая">300ml strong hot tea</li>
+                    <li data-en="225g self-raising flour" data-ru="225 г муки с разрыхлителем">225g self-raising flour</li>
+                    <li data-en="100g light brown sugar" data-ru="100 г светлого коричневого сахара">100g light brown sugar</li>
+                    <li data-en="1 large egg, beaten" data-ru="1 крупное яйцо, взбитое">1 large egg, beaten</li>
+                    <li data-en="1 tsp mixed spice" data-ru="1 ч.л. смеси специй">1 tsp mixed spice</li>
+                </ul>
+            </div>
+
+            <div class="recipe-section">
+                <h3 data-en="Instructions" data-ru="Приготовление">Instructions</h3>
+                <ul class="steps-list">
+                    <li data-en="Soak dried fruit in hot tea overnight (or at least 4 hours)." data-ru="Замочите сухофрукты в горячем чае на ночь (минимум 4 часа).">Soak dried fruit in hot tea overnight.</li>
+                    <li data-en="Preheat oven to 160°C (140°C fan). Grease and line a 2lb loaf tin." data-ru="Разогрейте духовку до 160°C. Смажьте и застелите форму для хлеба.">Preheat oven to 160°C. Grease and line a loaf tin.</li>
+                    <li data-en="Stir flour, sugar, spice and beaten egg into the fruit mixture." data-ru="Вмешайте муку, сахар, специи и взбитое яйцо в фруктовую смесь.">Stir flour, sugar, spice and beaten egg into the fruit mixture.</li>
+                    <li data-en="Pour into the tin and bake for 1.5 hours until a skewer comes out clean." data-ru="Вылейте в форму и выпекайте 1.5 часа до готовности.">Pour into the tin and bake for 1.5 hours.</li>
+                    <li data-en="Cool in the tin for 10 minutes, then turn out onto a wire rack." data-ru="Остудите в форме 10 минут, затем переложите на решетку.">Cool in the tin for 10 minutes, then turn out.</li>
+                </ul>
+            </div>
+            <div class="note" data-en="🍞 Best served sliced with butter and a cup of Welsh tea. Keeps well for several days." data-ru="🍞 Лучше всего подавать нарезанным с маслом и чашкой валлийского чая. Хорошо хранится несколько дней.">🍞 Serve sliced with butter and Welsh tea.</div>
+        </div>
+    </div>
+
+    <script>
+        let currentLang = 'en';
+        const translatable = document.querySelectorAll('[data-en][data-ru]');
+        const toggleBtn = document.getElementById('langToggle');
+
+        function updateLanguage(lang) {
+            translatable.forEach(el => {
+                el.textContent = el.getAttribute(`data-${lang}`);
+            });
+            if (lang === 'ru') {
+                toggleBtn.textContent = 'Change language';
+                currentLang = 'en';
+            } else {
+                toggleBtn.textContent = 'Поменять язык';
+                currentLang = 'ru';
+            }
+        }
+
+        toggleBtn.addEventListener('click', () => {
+            updateLanguage(currentLang);
+        });
+
+        updateLanguage('en');
+    </script>
+</body>
+</html>
