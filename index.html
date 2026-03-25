@@ -157,6 +157,34 @@
         max-width: 600px;
       }
 
+      /* Кнопка авторов */
+      .authors-btn {
+        margin-top: 24px;
+        text-align: center;
+      }
+
+      .authors-link {
+        display: inline-block;
+        background: #ffffff;
+        border: 1px solid #ddd8d0;
+        padding: 12px 32px;
+        border-radius: 40px;
+        font-size: 1rem;
+        font-weight: 500;
+        color: #5e5b56;
+        text-decoration: none;
+        transition: all 0.2s ease;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
+        font-family: inherit;
+      }
+
+      .authors-link:hover {
+        background: #f5f3f0;
+        border-color: #cbc6be;
+        transform: translateY(-2px);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.05);
+      }
+
       /* Адаптация */
       @media (max-width: 700px) {
         body {
@@ -173,6 +201,10 @@
         }
         .menu-card {
           padding: 24px 20px;
+        }
+        .authors-link {
+          padding: 10px 24px;
+          font-size: 0.9rem;
         }
       }
     </style>
@@ -325,6 +357,13 @@
 
     <div class="footer-note">click any menu to see recipes</div>
 
+    <!-- Кнопка авторов -->
+    <div class="authors-btn">
+      <a href="https://vivikpressf.github.io/proekt_shkola/index5.html" class="authors-link" id="authorsLink">
+        👥 Authors | Авторы
+      </a>
+    </div>
+
     <script>
       // Текущий язык: ru — русский, en — английский
       let currentLang = 'en';
@@ -332,6 +371,7 @@
       // Все элементы с data-en и data-ru
       const translatable = document.querySelectorAll('[data-en][data-ru]');
       const toggleBtn = document.getElementById('langToggle');
+      const authorsLink = document.getElementById('authorsLink');
 
       function updateLanguage(lang) {
         translatable.forEach((el) => {
@@ -340,9 +380,11 @@
         // Меняем текст кнопки
         if (lang === 'ru') {
           toggleBtn.textContent = 'Change language';
+          authorsLink.innerHTML = '👥 Authors | Авторы';
           currentLang = 'en';
         } else {
           toggleBtn.textContent = 'Поменять язык';
+          authorsLink.innerHTML = '👥 Авторы | Authors';
           currentLang = 'ru';
         }
       }
@@ -354,11 +396,6 @@
 
       // Начальное состояние — английский язык
       updateLanguage('en');
-
-      // Ссылки на страницы с рецептами (замени # на нужные URL)
-      document.getElementById('englishCard').href = '#';
-      document.getElementById('welshCard').href = '#';
-      document.getElementById('scottishCard').href = '#';
     </script>
   </body>
 </html>
