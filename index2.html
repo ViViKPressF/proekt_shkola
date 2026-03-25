@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>English Cuisine | Рецепты</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background: linear-gradient(135deg, #f5f0e8 0%, #e8e2d8 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+
+        /* Кнопка языка */
+        .lang-btn {
+            position: fixed;
+            top: 24px;
+            right: 24px;
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(4px);
+            border: 1px solid #ddd8d0;
+            padding: 10px 24px;
+            border-radius: 40px;
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: #3c3a38;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            z-index: 100;
+            font-family: inherit;
+        }
+
+        .lang-btn:hover {
+            background: #ffffff;
+            border-color: #cbc6be;
+            transform: translateY(-1px);
+        }
+
+        /* Навигация назад */
+        .back-nav {
+            max-width: 800px;
+            margin: 0 auto 32px auto;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: #8b8985;
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.2s;
+            padding: 8px 0;
+        }
+
+        .back-link:hover {
+            color: #2c2b29;
+        }
+
+        /* Заголовок */
+        .header {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+
+        .header h1 {
+            font-size: 2.8rem;
+            font-weight: 500;
+            letter-spacing: -0.5px;
+            color: #2c2b29;
+            margin-bottom: 12px;
+        }
+
+        .header p {
+            font-size: 1.1rem;
+            color: #8b8985;
+            font-weight: 400;
+        }
+
+        /* Контейнер с рецептами */
+        .recipes-container {
+            max-width: 900px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 32px;
+        }
+
+        /* Карточка рецепта */
+        .recipe-card {
+            background: #ffffff;
+            border-radius: 28px;
+            padding: 32px;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.03);
+            border: 1px solid #efedea;
+            transition: all 0.25s ease;
+        }
+
+        .recipe-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 20px 28px -12px rgba(0, 0, 0, 0.1);
+            border-color: #e0ddd8;
+        }
+
+        .recipe-title {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: #2c2b29;
+            margin-bottom: 8px;
+            letter-spacing: -0.3px;
+        }
+
+        .recipe-sub {
+            color: #9b9994;
+            font-size: 0.9rem;
+            margin-bottom: 24px;
+            padding-bottom: 16px;
+            border-bottom: 2px solid #f0eeea;
+        }
+
+        .recipe-section {
+            margin-bottom: 24px;
+        }
+
+        .recipe-section h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #5e5b56;
+            margin-bottom: 12px;
+            letter-spacing: -0.2px;
+        }
+
+        .ingredients-list {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .ingredients-list li {
+            background: #f8f6f2;
+            padding: 6px 14px;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            color: #4a4844;
+        }
+
+        .steps-list {
+            list-style: none;
+            counter-reset: step-counter;
+        }
+
+        .steps-list li {
+            counter-increment: step-counter;
+            margin-bottom: 16px;
+            padding-left: 32px;
+            position: relative;
+            line-height: 1.5;
+            color: #4a4844;
+        }
+
+        .steps-list li::before {
+            content: counter(step-counter);
+            position: absolute;
+            left: 0;
+            top: 0;
+            background: #e8e2d8;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: #5e5b56;
+        }
+
+        .note {
+            background: #f8f6f2;
+            padding: 16px 20px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            color: #6b695f;
+            margin-top: 20px;
+            border-left: 4px solid #cbc6be;
+        }
+
+        .divider-small {
+            width: 40px;
+            height: 2px;
+            background: #dad7d2;
+            margin: 20px 0 8px;
+        }
+
+        @media (max-width: 700px) {
+            body {
+                padding: 20px 16px;
+            }
+            .lang-btn {
+                top: 16px;
+                right: 16px;
+                padding: 6px 18px;
+                font-size: 0.85rem;
+            }
+            .header h1 {
+                font-size: 2rem;
+            }
+            .recipe-card {
+                padding: 24px;
+            }
+            .recipe-title {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <button class="lang-btn" id="langToggle">Change language</button>
+
+    <div class="back-nav">
+        <a href="index.html" class="back-link">
+            ← Back to main menu
+        </a>
+    </div>
+
+    <div class="header">
+        <h1 data-en="English Cuisine" data-ru="Английская кухня">English Cuisine</h1>
+        <p data-en="Traditional recipes" data-ru="Традиционные рецепты">Traditional recipes</p>
+    </div>
+
+    <div class="recipes-container">
+        <!-- FRUIT FOOL -->
+        <div class="recipe-card">
+            <div class="recipe-title" data-en="Fruit Fool" data-ru="Fruit Fool">Fruit Fool</div>
+            <div class="recipe-sub" data-en="light fruit dessert" data-ru="лёгкий фруктовый десерт">light fruit dessert</div>
+            
+            <div class="recipe-section">
+                <h3 data-en="Ingredients" data-ru="Ингредиенты">Ingredients</h3>
+                <ul class="ingredients-list">
+                    <li data-en="300g mixed berries (strawberries, raspberries)" data-ru="300 г ягод (клубника, малина)">300g mixed berries</li>
+                    <li data-en="50g sugar" data-ru="50 г сахара">50g sugar</li>
+                    <li data-en="250ml double cream" data-ru="250 мл жирных сливок">250ml double cream</li>
+                    <li data-en="1 tsp vanilla extract" data-ru="1 ч.л. ванильного экстракта">1 tsp vanilla extract</li>
+                    <li data-en="Mint leaves for garnish" data-ru="Листья мяты для украшения">Mint leaves for garnish</li>
+                </ul>
+            </div>
+
+            <div class="recipe-section">
+                <h3 data-en="Instructions" data-ru="Приготовление">Instructions</h3>
+                <ul class="steps-list">
+                    <li data-en="Purée half of the berries with sugar until smooth." data-ru="Пюрируйте половину ягод с сахаром до однородности.">Pure half of the berries with sugar until smooth.</li>
+                    <li data-en="Whip the cream with vanilla until soft peaks form." data-ru="Взбейте сливки с ванилью до мягких пиков.">Whip the cream with vanilla until soft peaks form.</li>
+                    <li data-en="Gently fold the berry purée into the whipped cream." data-ru="Аккуратно вмешайте ягодное пюре во взбитые сливки.">Gently fold the berry purée into the whipped cream.</li>
+                    <li data-en="Spoon into glasses, layer with remaining whole berries." data-ru="Разложите по бокалам, чередуя с оставшимися ягодами.">Spoon into glasses, layer with remaining whole berries.</li>
+                    <li data-en="Chill for at least 1 hour before serving. Garnish with mint." data-ru="Охладите минимум 1 час перед подачей. Украсьте мятой.">Chill for at least 1 hour before serving. Garnish with mint.</li>
+                </ul>
+            </div>
+            <div class="note" data-en="💡 Tip: Use fresh seasonal berries for the best flavor." data-ru="💡 Совет: Используйте свежие сезонные ягоды для лучшего вкуса.">💡 Tip: Use fresh seasonal berries for the best flavor.</div>
+        </div>
+
+        <!-- WELSH RAREBIT -->
+        <div class="recipe-card">
+            <div class="recipe-title" data-en="Welsh Rarebit" data-ru="Welsh Rarebit">Welsh Rarebit</div>
+            <div class="recipe-sub" data-en="cheesy toast with a twist" data-ru="сырный тост с изюминкой">cheesy toast with a twist</div>
+            
+            <div class="recipe-section">
+                <h3 data-en="Ingredients" data-ru="Ингредиенты">Ingredients</h3>
+                <ul class="ingredients-list">
+                    <li data-en="4 slices of sourdough bread" data-ru="4 ломтика заквасочного хлеба">4 slices sourdough bread</li>
+                    <li data-en="200g mature cheddar, grated" data-ru="200 г выдержанного чеддера, натертого">200g mature cheddar</li>
+                    <li data-en="2 tbsp ale or milk" data-ru="2 ст.л. эля или молока">2 tbsp ale or milk</li>
+                    <li data-en="1 tsp mustard powder" data-ru="1 ч.л. сухой горчицы">1 tsp mustard powder</li>
+                    <li data-en="1 egg yolk" data-ru="1 желток">1 egg yolk</li>
+                    <li data-en="Worcestershire sauce to taste" data-ru="Вустерширский соус по вкусу">Worcestershire sauce</li>
+                </ul>
+            </div>
+
+            <div class="recipe-section">
+                <h3 data-en="Instructions" data-ru="Приготовление">Instructions</h3>
+                <ul class="steps-list">
+                    <li data-en="Preheat grill to medium-high." data-ru="Разогрейте гриль до средней температуры.">Preheat grill to medium-high.</li>
+                    <li data-en="In a bowl, mix cheese, ale, mustard, egg yolk and a dash of Worcestershire sauce." data-ru="В миске смешайте сыр, эль, горчицу, желток и немного вустерширского соуса.">Mix cheese, ale, mustard, egg yolk and Worcestershire sauce.</li>
+                    <li data-en="Toast bread lightly on both sides." data-ru="Слегка поджарьте хлеб с двух сторон.">Toast bread lightly on both sides.</li>
+                    <li data-en="Spread cheese mixture generously over each slice." data-ru="Щедро намажьте сырную смесь на каждый ломтик.">Spread cheese mixture over each slice.</li>
+                    <li data-en="Grill until bubbling and golden brown (about 3-4 minutes)." data-ru="Запекайте под грилем до появления пузырьков и золотистой корочки (3-4 минуты).">Grill until bubbling and golden brown (3-4 minutes).</li>
+                </ul>
+            </div>
+            <div class="note" data-en="🍺 Serve with a pint of ale for an authentic British experience." data-ru="🍺 Подавайте с пинтой эля для аутентичного британского опыта.">🍺 Serve with a pint of ale for an authentic British experience.</div>
+        </div>
+
+        <!-- APPLE PIE -->
+        <div class="recipe-card">
+            <div class="recipe-title" data-en="Apple Pie" data-ru="Apple Pie">Apple Pie</div>
+            <div class="recipe-sub" data-en="classic British dessert" data-ru="классический британский десерт">classic British dessert</div>
+            
+            <div class="recipe-section">
+                <h3 data-en="Ingredients" data-ru="Ингредиенты">Ingredients</h3>
+                <ul class="ingredients-list">
+                    <li data-en="For the pastry: 250g flour, 125g cold butter, pinch of salt, 3-4 tbsp cold water" data-ru="Для теста: 250 г муки, 125 г холодного масла, щепотка соли, 3-4 ст.л. холодной воды">Pastry: 250g flour, 125g butter, salt, water</li>
+                    <li data-en="For the filling: 800g apples (Bramley or Granny Smith)" data-ru="Для начинки: 800 г яблок (Брэмли или Гренни Смит)">800g apples (Bramley or Granny Smith)</li>
+                    <li data-en="100g sugar (plus extra for sprinkling)" data-ru="100 г сахара (плюс для посыпки)">100g sugar + extra</li>
+                    <li data-en="1 tsp cinnamon" data-ru="1 ч.л. корицы">1 tsp cinnamon</li>
+                    <li data-en="1 tbsp lemon juice" data-ru="1 ст.л. лимонного сока">1 tbsp lemon juice</li>
+                    <li data-en="1 egg (for egg wash)" data-ru="1 яйцо (для смазывания)">1 egg for egg wash</li>
+                </ul>
+            </div>
+
+            <div class="recipe-section">
+                <h3 data-en="Instructions" data-ru="Приготовление">Instructions</h3>
+                <ul class="steps-list">
+                    <li data-en="Make pastry: rub butter into flour until breadcrumb-like. Add water, form dough. Chill 30 min." data-ru="Приготовьте тесто: разотрите масло с мукой в крошку. Добавьте воду, сформируйте тесто. Охладите 30 мин.">Make pastry: rub butter into flour. Add water, form dough. Chill 30 min.</li>
+                    <li data-en="Peel, core and slice apples. Toss with sugar, cinnamon and lemon juice." data-ru="Очистите, удалите сердцевину и нарежьте яблоки. Смешайте с сахаром, корицей и лимонным соком.">Peel, core and slice apples. Mix with sugar, cinnamon, lemon juice.</li>
+                    <li data-en="Roll out two thirds of pastry for the base. Line a pie dish." data-ru="Раскатайте две трети теста для основы. Выложите в форму.">Roll out pastry for base. Line a pie dish.</li>
+                    <li data-en="Fill with apple mixture. Roll remaining pastry for the lid. Cover and seal edges." data-ru="Выложите яблочную начинку. Раскатайте оставшееся тесто для крышки. Накройте и защипните края.">Fill with apples. Cover with pastry lid, seal edges.</li>
+                    <li data-en="Brush with egg wash, sprinkle with sugar. Cut slits for steam. Bake at 200°C for 40-45 min until golden." data-ru="Смажьте яйцом, посыпьте сахаром. Сделайте надрезы для пара. Выпекайте при 200°C 40-45 мин до золотистого цвета.">Brush with egg wash, sprinkle sugar. Bake at 200°C for 40-45 min.</li>
+                </ul>
+            </div>
+            <div class="note" data-en="🍏 Serve warm with custard or vanilla ice cream." data-ru="🍏 Подавайте теплым с заварным кремом или ванильным мороженым.">🍏 Serve warm with custard or vanilla ice cream.</div>
+        </div>
+    </div>
+
+    <script>
+        let currentLang = 'en';
+        const translatable = document.querySelectorAll('[data-en][data-ru]');
+        const toggleBtn = document.getElementById('langToggle');
+
+        function updateLanguage(lang) {
+            translatable.forEach(el => {
+                el.textContent = el.getAttribute(`data-${lang}`);
+            });
+            if (lang === 'ru') {
+                toggleBtn.textContent = 'Change language';
+                currentLang = 'en';
+            } else {
+                toggleBtn.textContent = 'Поменять язык';
+                currentLang = 'ru';
+            }
+        }
+
+        toggleBtn.addEventListener('click', () => {
+            updateLanguage(currentLang);
+        });
+
+        updateLanguage('en');
+    </script>
+</body>
+</html>
