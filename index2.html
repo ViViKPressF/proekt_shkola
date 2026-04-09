@@ -46,7 +46,7 @@
 
         /* Навигация назад */
         .back-nav {
-            max-width: 800px;
+            max-width: 900px;
             margin: 0 auto 32px auto;
         }
 
@@ -184,6 +184,27 @@
             color: #5e5b56;
         }
 
+        /* YouTube плеер */
+        .video-container {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border-radius: 20px;
+            margin: 24px 0 20px 0;
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+            border-radius: 20px;
+        }
+
         .note {
             background: #f8f6f2;
             padding: 16px 20px;
@@ -192,13 +213,6 @@
             color: #6b695f;
             margin-top: 20px;
             border-left: 4px solid #cbc6be;
-        }
-
-        .divider-small {
-            width: 40px;
-            height: 2px;
-            background: #dad7d2;
-            margin: 20px 0 8px;
         }
 
         @media (max-width: 700px) {
@@ -239,6 +253,41 @@
     </div>
 
     <div class="recipes-container">
+        <!-- APPLE PIE (ШАРЛОТКА) - ПЕРВЫЙ ПО СЧЕТУ -->
+        <div class="recipe-card">
+            <div class="recipe-title" data-en="Apple Pie" data-ru="Apple Pie">Apple Pie</div>
+            <div class="recipe-sub" data-en="classic British dessert" data-ru="классический британский десерт">classic British dessert</div>
+            
+            <div class="recipe-section">
+                <h3 data-en="Ingredients (8 servings)" data-ru="Ингредиенты (на 8 порций)">Ingredients (8 servings)</h3>
+                <ul class="ingredients-list">
+                    <li data-en="1 cup flour" data-ru="Мука - 1 стакан">1 cup flour</li>
+                    <li data-en="1 cup sugar" data-ru="Сахар - 1 стакан">1 cup sugar</li>
+                    <li data-en="3 eggs" data-ru="Яйца - 3 шт.">3 eggs</li>
+                    <li data-en="3-4 apples" data-ru="Яблоки - 3-4 шт.">3-4 apples</li>
+                    <li data-en="Vanillin or vanilla sugar to taste" data-ru="Ванилин (ванильный сахар) – по вкусу">Vanillin or vanilla sugar to taste</li>
+                    <li data-en="A pinch of baking soda" data-ru="Сода пищевая - щепотка">A pinch of baking soda</li>
+                </ul>
+            </div>
+
+            <div class="recipe-section">
+                <h3 data-en="Instructions" data-ru="Приготовление">Instructions</h3>
+                <ul class="steps-list">
+                    <li data-en="Prepare the classic Charlotte dough. Crack eggs into a mixer bowl. Add sugar. Whisk with a mixer first at medium, then at high speed until a light yellow homogeneous mass is obtained." data-ru="Готовим тесто классической шарлотки. В чашу миксера вбиваем яйца. Добавляем сахар. Взбиваем миксером сначала на средней, затем на высокой скорости до получения светло-желтой массы однородной консистенции.">Prepare classic Charlotte dough. Whisk eggs and sugar until light yellow and fluffy.</li>
+                    <li data-en="Add flour, previously sifted through a fine sieve with a pinch of soda and vanillin (vanilla sugar), to the sweet egg mixture. Whisk again with a mixer. The Charlotte dough is ready." data-ru="В сладкую яичную смесь добавляем муку, предварительно просеянную через мелкое сито со щепоткой соды и ванилином (ванильным сахаром). Снова взбиваем миксером. Тесто шарлотки готово.">Add sifted flour with soda and vanilla. Whisk again. The dough is ready.</li>
+                    <li data-en="Prepare the Charlotte filling. Wash the apples and cut each in half. Remove the cores with seeds. Peel the flesh and cut into small cubes or slices of any shape." data-ru="Готовим начинку для шарлотки. Яблоки моем и каждое разрезаем пополам. Удаляем сердцевины с семенами. Мякоть очищаем и нарезаем небольшими кубиками или ломтиками произвольной формы.">Wash and cut apples in half. Remove cores. Peel and cut into small cubes or slices.</li>
+                    <li data-en="Add apples to the Charlotte dough and mix gently. Pour the resulting mixture into a mold greased with any fat and place in an oven preheated to 190°C for 30 minutes." data-ru="Яблоки добавляем в тесто шарлотки и осторожно перемешиваем. Выливаем получившуюся массу в форму, смазанную любым жиром, и отправляем в духовку, нагретую до 190°C, на 30 минут.">Add apples to the dough and mix gently. Pour into a greased mold. Bake at 190°C for 30 minutes.</li>
+                </ul>
+            </div>
+            
+            <!-- YouTube плеер (ниже приготовления, выше совета) -->
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID" allowfullscreen></iframe>
+            </div>
+            
+            <div class="note" data-en="🍏 Serve warm with custard or vanilla ice cream." data-ru="🍏 Подавайте теплым с заварным кремом или ванильным мороженым.">🍏 Serve warm with custard or vanilla ice cream.</div>
+        </div>
+
         <!-- FRUIT FOOL -->
         <div class="recipe-card">
             <div class="recipe-title" data-en="Fruit Fool" data-ru="Fruit Fool">Fruit Fool</div>
@@ -268,7 +317,7 @@
             <div class="note" data-en="💡 Tip: Use fresh seasonal berries for the best flavor." data-ru="💡 Совет: Используйте свежие сезонные ягоды для лучшего вкуса.">💡 Tip: Use fresh seasonal berries for the best flavor.</div>
         </div>
 
-        <!-- BARA BRITH (теперь в английской кухне) -->
+        <!-- BARA BRITH -->
         <div class="recipe-card">
             <div class="recipe-title" data-en="Bara Brith" data-ru="Bara Brith">Bara Brith</div>
             <div class="recipe-sub" data-en="Welsh fruit loaf" data-ru="валлийский фруктовый хлеб">Welsh fruit loaf</div>
@@ -296,36 +345,6 @@
                 </ul>
             </div>
             <div class="note" data-en="🍞 Best served sliced with butter and a cup of Welsh tea. Keeps well for several days." data-ru="🍞 Лучше всего подавать нарезанным с маслом и чашкой валлийского чая. Хорошо хранится несколько дней.">🍞 Serve sliced with butter and Welsh tea.</div>
-        </div>
-
-        <!-- APPLE PIE -->
-        <div class="recipe-card">
-            <div class="recipe-title" data-en="Apple Pie" data-ru="Apple Pie">Apple Pie</div>
-            <div class="recipe-sub" data-en="classic British dessert" data-ru="классический британский десерт">classic British dessert</div>
-            
-            <div class="recipe-section">
-                <h3 data-en="Ingredients" data-ru="Ингредиенты">Ingredients</h3>
-                <ul class="ingredients-list">
-                    <li data-en="For the pastry: 250g flour, 125g cold butter, pinch of salt, 3-4 tbsp cold water" data-ru="Для теста: 250 г муки, 125 г холодного масла, щепотка соли, 3-4 ст.л. холодной воды">Pastry: 250g flour, 125g butter, salt, water</li>
-                    <li data-en="For the filling: 800g apples (Bramley or Granny Smith)" data-ru="Для начинки: 800 г яблок (Брэмли или Гренни Смит)">800g apples (Bramley or Granny Smith)</li>
-                    <li data-en="100g sugar (plus extra for sprinkling)" data-ru="100 г сахара (плюс для посыпки)">100g sugar + extra</li>
-                    <li data-en="1 tsp cinnamon" data-ru="1 ч.л. корицы">1 tsp cinnamon</li>
-                    <li data-en="1 tbsp lemon juice" data-ru="1 ст.л. лимонного сока">1 tbsp lemon juice</li>
-                    <li data-en="1 egg (for egg wash)" data-ru="1 яйцо (для смазывания)">1 egg for egg wash</li>
-                </ul>
-            </div>
-
-            <div class="recipe-section">
-                <h3 data-en="Instructions" data-ru="Приготовление">Instructions</h3>
-                <ul class="steps-list">
-                    <li data-en="Make pastry: rub butter into flour until breadcrumb-like. Add water, form dough. Chill 30 min." data-ru="Приготовьте тесто: разотрите масло с мукой в крошку. Добавьте воду, сформируйте тесто. Охладите 30 мин.">Make pastry: rub butter into flour. Add water, form dough. Chill 30 min.</li>
-                    <li data-en="Peel, core and slice apples. Toss with sugar, cinnamon and lemon juice." data-ru="Очистите, удалите сердцевину и нарежьте яблоки. Смешайте с сахаром, корицей и лимонным соком.">Peel, core and slice apples. Mix with sugar, cinnamon, lemon juice.</li>
-                    <li data-en="Roll out two thirds of pastry for the base. Line a pie dish." data-ru="Раскатайте две трети теста для основы. Выложите в форму.">Roll out pastry for base. Line a pie dish.</li>
-                    <li data-en="Fill with apple mixture. Roll remaining pastry for the lid. Cover and seal edges." data-ru="Выложите яблочную начинку. Раскатайте оставшееся тесто для крышки. Накройте и защипните края.">Fill with apples. Cover with pastry lid, seal edges.</li>
-                    <li data-en="Brush with egg wash, sprinkle with sugar. Cut slits for steam. Bake at 200°C for 40-45 min until golden." data-ru="Смажьте яйцом, посыпьте сахаром. Сделайте надрезы для пара. Выпекайте при 200°C 40-45 мин до золотистого цвета.">Brush with egg wash, sprinkle sugar. Bake at 200°C for 40-45 min.</li>
-                </ul>
-            </div>
-            <div class="note" data-en="🍏 Serve warm with custard or vanilla ice cream." data-ru="🍏 Подавайте теплым с заварным кремом или ванильным мороженым.">🍏 Serve warm with custard or vanilla ice cream.</div>
         </div>
     </div>
 
