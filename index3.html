@@ -184,6 +184,27 @@
             color: #5e5b56;
         }
 
+        /* RuTube плеер */
+        .video-container {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border-radius: 20px;
+            margin: 24px 0 20px 0;
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+            border-radius: 20px;
+        }
+
         .note {
             background: #f8f6f2;
             padding: 16px 20px;
@@ -261,6 +282,12 @@
                     <li data-en="Sprinkle with caster sugar while still warm." data-ru="Посыпьте сахарной пудрой пока теплые.">Sprinkle with caster sugar while warm.</li>
                 </ul>
             </div>
+            
+            <!-- RuTube плеер (ниже приготовления, выше совета) -->
+            <div class="video-container">
+                <iframe src="https://rutube.ru/embed/YOUR_RUTUBE_VIDEO_ID" allowfullscreen></iframe>
+            </div>
+            
             <div class="note" data-en="🔥 Best enjoyed warm with a cup of tea. Traditional Welsh cakes are made on a bakestone (maen)." data-ru="🔥 Лучше всего есть теплыми с чашкой чая. Традиционные валлийские лепешки готовят на камне для выпечки (maen).">🔥 Best enjoyed warm with a cup of tea.</div>
         </div>
 
@@ -295,7 +322,7 @@
             <div class="note" data-en="🏴󠁧󠁢󠁷󠁬󠁳󠁿 Traditionally served with crusty bread and a slice of Caerphilly cheese." data-ru="🏴󠁧󠁢󠁷󠁬󠁳󠁿 Традиционно подается с хрустящим хлебом и ломтиком сыра Кайрфилли.">🏴󠁧󠁢󠁷󠁬󠁳󠁿 Serve with crusty bread and Caerphilly cheese.</div>
         </div>
 
-        <!-- WELSH RAREBIT (теперь в валлийской кухне) -->
+        <!-- WELSH RAREBIT -->
         <div class="recipe-card">
             <div class="recipe-title" data-en="Welsh Rarebit" data-ru="Welsh Rarebit">Welsh Rarebit</div>
             <div class="recipe-sub" data-en="cheesy toast with a twist" data-ru="сырный тост с изюминкой">cheesy toast with a twist</div>
