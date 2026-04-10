@@ -184,6 +184,27 @@
             color: #5e5b56;
         }
 
+        /* RuTube плеер */
+        .video-container {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border-radius: 20px;
+            margin: 24px 0 20px 0;
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+            border-radius: 20px;
+        }
+
         .note {
             background: #f8f6f2;
             padding: 16px 20px;
@@ -232,6 +253,43 @@
     </div>
 
     <div class="recipes-container">
+        <!-- SCOTCH EGGS - ПЕРВЫЙ ПО СЧЕТУ -->
+        <div class="recipe-card">
+            <div class="recipe-title" data-en="Scotch Eggs" data-ru="Scotch Eggs">Scotch Eggs</div>
+            <div class="recipe-sub" data-en="eggs wrapped in sausage meat" data-ru="яйца, завернутые в колбасный фарш">eggs wrapped in sausage meat</div>
+            
+            <div class="recipe-section">
+                <h3 data-en="Ingredients" data-ru="Ингредиенты">Ingredients</h3>
+                <ul class="ingredients-list">
+                    <li data-en="6 large eggs" data-ru="6 крупных яиц">6 large eggs</li>
+                    <li data-en="500g good quality sausage meat" data-ru="500 г качественного колбасного фарша">500g sausage meat</li>
+                    <li data-en="100g plain flour" data-ru="100 г муки">100g plain flour</li>
+                    <li data-en="150g breadcrumbs" data-ru="150 г панировочных сухарей">150g breadcrumbs</li>
+                    <li data-en="Vegetable oil for deep frying" data-ru="Растительное масло для фритюра">Vegetable oil for deep frying</li>
+                    <li data-en="Salt and pepper to taste" data-ru="Соль и перец по вкусу">Salt and pepper to taste</li>
+                </ul>
+            </div>
+
+            <div class="recipe-section">
+                <h3 data-en="Instructions" data-ru="Приготовление">Instructions</h3>
+                <ul class="steps-list">
+                    <li data-en="Place 4 eggs in a pan, cover with water. Bring to boil, cook for 6 minutes. Cool in ice water, peel carefully." data-ru="Поместите 4 яйца в кастрюлю, залейте водой. Доведите до кипения, варите 6 минут. Остудите в ледяной воде, аккуратно очистите.">Boil 4 eggs for 6 minutes, cool in ice water, peel carefully.</li>
+                    <li data-en="Divide sausage meat into 4 equal portions. Flatten each into a patty." data-ru="Разделите колбасный фарш на 4 равные части. Каждую расплющите в лепешку.">Divide sausage meat into 4 portions. Flatten each into a patty.</li>
+                    <li data-en="Wrap each egg in sausage meat, sealing completely." data-ru="Заверните каждое яйцо в колбасный фарш, полностью запечатывая.">Wrap each egg in sausage meat, seal completely.</li>
+                    <li data-en="Beat remaining 2 eggs. Roll each wrapped egg in flour, then beaten egg, then breadcrumbs." data-ru="Взбейте оставшиеся 2 яйца. Обваляйте каждое яйцо в муке, затем во взбитом яйце, затем в сухарях.">Roll in flour, beaten egg, then breadcrumbs.</li>
+                    <li data-en="Heat oil to 170°C. Deep fry for 6-8 minutes until golden brown and cooked through." data-ru="Разогрейте масло до 170°C. Жарьте во фритюре 6-8 минут до золотистого цвета и готовности.">Heat oil to 170°C. Deep fry for 6-8 minutes until golden.</li>
+                    <li data-en="Drain on paper towel. Serve warm or cold." data-ru="Обсушите на бумажном полотенце. Подавайте теплыми или холодными.">Drain on paper towel. Serve warm or cold.</li>
+                </ul>
+            </div>
+            
+            <!-- RuTube плеер (ниже приготовления, выше совета) -->
+            <div class="video-container">
+                <iframe src="https://rutube.ru/embed/840c74ce3a4adaafbd410cd727f26c05/" allowfullscreen></iframe>
+            </div>
+            
+            <div class="note" data-en="🥚 Perfect for picnics! Can be made ahead and served cold with mustard or chutney." data-ru="🥚 Идеально для пикников! Можно приготовить заранее и подавать холодными с горчицей или чатни.">🥚 Perfect for picnics! Serve with mustard or chutney.</div>
+        </div>
+
         <!-- ARBROATH SMOKIE -->
         <div class="recipe-card">
             <div class="recipe-title" data-en="Arbroath Smokie" data-ru="Arbroath Smokie">Arbroath Smokie</div>
@@ -261,37 +319,6 @@
                 </ul>
             </div>
             <div class="note" data-en="🐟 Arbroath Smokies are a protected geographical indication. Traditionally smoked over hardwood." data-ru="🐟 Arbroath Smokies имеют защищенное географическое указание. Традиционно коптятся на твердых породах дерева.">🐟 A protected Scottish delicacy. Traditionally smoked over hardwood.</div>
-        </div>
-
-        <!-- SCOTCH EGGS -->
-        <div class="recipe-card">
-            <div class="recipe-title" data-en="Scotch Eggs" data-ru="Scotch Eggs">Scotch Eggs</div>
-            <div class="recipe-sub" data-en="eggs wrapped in sausage meat" data-ru="яйца, завернутые в колбасный фарш">eggs wrapped in sausage meat</div>
-            
-            <div class="recipe-section">
-                <h3 data-en="Ingredients" data-ru="Ингредиенты">Ingredients</h3>
-                <ul class="ingredients-list">
-                    <li data-en="6 large eggs" data-ru="6 крупных яиц">6 large eggs</li>
-                    <li data-en="500g good quality sausage meat" data-ru="500 г качественного колбасного фарша">500g sausage meat</li>
-                    <li data-en="100g plain flour" data-ru="100 г муки">100g plain flour</li>
-                    <li data-en="150g breadcrumbs" data-ru="150 г панировочных сухарей">150g breadcrumbs</li>
-                    <li data-en="Vegetable oil for deep frying" data-ru="Растительное масло для фритюра">Vegetable oil for deep frying</li>
-                    <li data-en="Salt and pepper to taste" data-ru="Соль и перец по вкусу">Salt and pepper to taste</li>
-                </ul>
-            </div>
-
-            <div class="recipe-section">
-                <h3 data-en="Instructions" data-ru="Приготовление">Instructions</h3>
-                <ul class="steps-list">
-                    <li data-en="Place 4 eggs in a pan, cover with water. Bring to boil, cook for 6 minutes. Cool in ice water, peel carefully." data-ru="Поместите 4 яйца в кастрюлю, залейте водой. Доведите до кипения, варите 6 минут. Остудите в ледяной воде, аккуратно очистите.">Boil 4 eggs for 6 minutes, cool in ice water, peel carefully.</li>
-                    <li data-en="Divide sausage meat into 4 equal portions. Flatten each into a patty." data-ru="Разделите колбасный фарш на 4 равные части. Каждую расплющите в лепешку.">Divide sausage meat into 4 portions. Flatten each into a patty.</li>
-                    <li data-en="Wrap each egg in sausage meat, sealing completely." data-ru="Заверните каждое яйцо в колбасный фарш, полностью запечатывая.">Wrap each egg in sausage meat, seal completely.</li>
-                    <li data-en="Beat remaining 2 eggs. Roll each wrapped egg in flour, then beaten egg, then breadcrumbs." data-ru="Взбейте оставшиеся 2 яйца. Обваляйте каждое яйцо в муке, затем во взбитом яйце, затем в сухарях.">Roll in flour, beaten egg, then breadcrumbs.</li>
-                    <li data-en="Heat oil to 170°C. Deep fry for 6-8 minutes until golden brown and cooked through." data-ru="Разогрейте масло до 170°C. Жарьте во фритюре 6-8 минут до золотистого цвета и готовности.">Heat oil to 170°C. Deep fry for 6-8 minutes until golden.</li>
-                    <li data-en="Drain on paper towel. Serve warm or cold." data-ru="Обсушите на бумажном полотенце. Подавайте теплыми или холодными.">Drain on paper towel. Serve warm or cold.</li>
-                </ul>
-            </div>
-            <div class="note" data-en="🥚 Perfect for picnics! Can be made ahead and served cold with mustard or chutney." data-ru="🥚 Идеально для пикников! Можно приготовить заранее и подавать холодными с горчицей или чатни.">🥚 Perfect for picnics! Serve with mustard or chutney.</div>
         </div>
 
         <!-- FULL SCOTTISH BREAKFAST -->
